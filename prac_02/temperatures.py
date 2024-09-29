@@ -1,6 +1,6 @@
 """
-CP1404/CP5632 - Practical - Florian N Eisen
-Pseudocode for temperature conversion
+CP1404 - Practical - Florian N Eisen
+Function for temperature conversion
 """
 
 

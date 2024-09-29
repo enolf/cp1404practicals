@@ -1,8 +1,7 @@
 """
-CP1404/CP5632 - Practical - Florian N Eisen
-Broken program to determine score status
+CP1404 - Practical - Florian N Eisen
+Function to determine status of a score between 0 and 100
 """
-
 
 from random import randint
 

@@ -1,18 +1,18 @@
 """
-CP1404 Sandbox | password_stars.py | Florian N Eisen
-program to detect password
+CP1404 - Practical - Florian N Eisen
+Function for password to be converted into *s
 """
 
 
 def main():
-    """Convert password into stars based on its length"""
+    """Convert min. 4 character password into *s based on its length"""
     password = get_password()
 
     print_asterisks(password)
 
 
 def print_asterisks(password):
-    """Print password with stars"""
+    """Print password with *s"""
     print("password secured as:\n", "*" * len(password))
 
 
