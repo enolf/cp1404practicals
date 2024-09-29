@@ -4,27 +4,29 @@ Broken program to determine score status
 """
 
 
+from random import randint
+
+
 def main():
-    """Determine a grade status based on score given by user"""
+    """Determine a grade status based on score given by user as well as a random score"""
     score = float(input("Enter score: "))
-    grade = get_grade(score)
-    print(grade)
+    print(get_grade(score))
+
+    score_random = randint(1, 100)
+    print("Random Score is: ", score_random)
+    print(get_grade(score_random))
 
 
 def get_grade(score):
     """Indicate status of input score"""
     if score < 0 or score > 100:
-        grade = "Invalid score"
-        return grade
+        return "Invalid score"
     elif score >= 90:
-        grade = "Excellent"
-        return grade
+        return "Excellent"
     elif score >= 50:
-        grade = "Passable"
-        return grade
-    elif score < 50:
-        grade = "Bad"
-        return grade
+        return "Passable"
+    else:
+        return "Bad"
 
 
 main()
