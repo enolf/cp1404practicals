@@ -7,7 +7,6 @@ Function for password to be converted into *s
 def main():
     """Convert min. 4 character password into *s based on its length"""
     password = get_password()
-
     print_asterisks(password)
 
 

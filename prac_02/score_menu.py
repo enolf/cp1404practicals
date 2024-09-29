@@ -21,7 +21,7 @@ def main():
         if selection == "G":
             valid_score = get_score()
         elif selection == "P":
-            print(get_grade(valid_score))
+            print(determine_grade(valid_score))
         elif selection == "S":
             print("*" * valid_score)
         else:
@@ -34,12 +34,12 @@ def get_score():
     """Get input score and check it is within the range 0 and 100"""
     valid_score = int(input("Enter your score, it must be between 0 and 100: "))
     while valid_score > 100 or valid_score < 0:
-        valid_score = int(input("Enter your score again, it must be between 0 and 100: "))
+        valid_score = int(input("Invalid score, it must be between 0 and 100: "))
     return valid_score
 
 
-def get_grade(valid_score):
-    """Rate the input score"""
+def determine_grade(valid_score):
+    """Rate the input score and return the rating"""
     if valid_score < 0 or valid_score > 100:
         return "Invalid score"
     elif valid_score >= 90:
