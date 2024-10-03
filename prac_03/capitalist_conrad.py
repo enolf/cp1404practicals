@@ -4,19 +4,26 @@ Capitalist Conrad wants a stock price simulator for a volatile stock.
 The price starts off at $10.00, and, at the end of every day there is
 a 50% chance it increases by 0 to 10%, and
 a 50% chance that it decreases by 0 to 5%.
-If the price rises above $1000, or falls below $0.01, the program should end.
+If the price rises above $100, or falls below $1, the program should end.
 The price should be displayed to the nearest cent (e.g. $33.59, not $33.5918232901)
+Program will also write the printed output into a .txt file
 """
 import random
 
 MAX_INCREASE = 0.1  # 10%
 MAX_DECREASE = 0.05  # 5%
-MIN_PRICE = 0.01
-MAX_PRICE = 1000.0
+MIN_PRICE = 1
+MAX_PRICE = 100.0
 INITIAL_PRICE = 10.0
+FILENAME = 'conrads_stock.txt'
 
 price = INITIAL_PRICE
 print(f"${price:,.2f}")
+
+number_of_days = 0  # count of number of days the stock price takes to reach limit
+print(f"Starting price is: ${INITIAL_PRICE:,.2f}")
+
+out_file = open(FILENAME, "w")
 
 while MIN_PRICE <= price <= MAX_PRICE:
     price_change = 0
@@ -31,5 +38,8 @@ while MIN_PRICE <= price <= MAX_PRICE:
         # between negative MAX_DECREASE and 0
         price_change = random.uniform(-MAX_DECREASE, 0)
 
+    number_of_days = number_of_days + 1  # add a day to the count
     price *= (1 + price_change)
-    print(f"${price:,.2f}")
+    # print the price at the end of the day and the write into FILENAME
+    print(f"On the end of day {number_of_days} price is ${price:,.2f}", file=out_file)
+out_file.close()
