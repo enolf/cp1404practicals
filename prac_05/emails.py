@@ -8,14 +8,14 @@ Actual: 46 mins
 
 def main():
     email_filing_cabinet = {}
-    email_input = input("Email: ")
-    while email_input != "":
-        name_extracted = extract_name(email_input)
+    email = input("Email: ")
+    while email != "":
+        name_extracted = extract_name(email)
         print(f"Is your name: {name_extracted}? (Y/n)")
         if input().upper() not in ["Y", ""]:
             name_extracted = input("Name: ")
-        email_filing_cabinet[email_input] = name_extracted
-        email_input = input("Email: ")
+        email_filing_cabinet[email] = name_extracted
+        email = input("Email: ")
     for key, value in email_filing_cabinet.items():
         print(f"{value} ({key})")
 
