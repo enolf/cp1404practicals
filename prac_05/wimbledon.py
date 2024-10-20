@@ -7,13 +7,15 @@ Estimated: 35 mins
 Actual: 92 mins
 """
 
+FILENAME = "wimbledon.csv"
+
 
 def main():
     """Read, extract and display the Wimbledon gentlemen's champions, total wins and respective countries.'"""
-    filename = "wimbledon.csv"
+
     champions_stats = {}
     champions_nations = set()
-    data_extract = read_extract_dataset(filename)
+    data_extract = read_extract_dataset(FILENAME)
     process_data(data_extract, champions_stats, champions_nations)
     display_processes_data(champions_stats, champions_nations)
 
