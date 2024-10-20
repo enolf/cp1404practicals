@@ -1,3 +1,8 @@
+"""
+CP1404 - Prac 05 - Florian N Eisen
+Program to interpret  selected color names to their respective hexadecimal
+"""
+
 NAMES_TO_HEX_CODES = {"AliceBlue": "#f0f8ff", "British Racing Green": "#004225",
                       "Cherry Blossom Pink": "#ffb7c5", "Deep Saffron": "#ff9933",
                       "Vanilla": "#f3e5ab", "Teal": "#008080", "Pistachio": "#93c572",
