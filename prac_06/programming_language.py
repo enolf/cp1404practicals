@@ -1,29 +1,20 @@
 """
-estimate: 25min
+CP1404 - prac_06 - Florian N Eisen
+estimated: 25
+actual: 35
 """
-
-# data = [
-#             ["(Field)", "Typing", "Reflection", "Year"],
-#             ["Java", "Static", "Yes", 1995],
-#             ["C++", "Static", "No", 1983],
-#             ["Python", "Dynamic", "Yes", 19910],
-#             ["Ruby", "Dynamic", "Yes", 1995]
-#         ]
-data = [
-            ["(Field)", "Java", "C++", "Python", "Ruby"],
-            ["Typing", "Static", "Static", "Dynamic", "Dynamic"],
-            ["Reflection", "Yes", "No", "Yes", "Yes"],
-            ["Year", 1995, 1983, 1991, 1995]
-        ]
 
 
 class ProgrammingLanguage:
-    def __init__(self):
+    def __init__(self, lang="", typing="", reflection=False, year=0):
         """Init"""
-        self.language = ""
-        for element in data:
-            print(f"{element:}")
+        self.lang = lang
+        self.typing = typing
+        self.reflection = reflection
+        self.year = year
 
+    def __str__(self):
+        return f"{self.lang}, {self.typing} typing, Reflection={self.reflection}, First appeared in {self.year}"
 
-    # def is_dynamic(self):
-    #     if self.language
+    def is_dynamic(self):
+        return self.typing == "Dynamic"
