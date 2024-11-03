@@ -5,12 +5,20 @@ actual
 
 from prac_06.guitar import Guitar
 
+
 def main():
 
+    guitar = []
     guitar_name = input("Name: ")
-    guitar_year =
-    while user_guitar or != "":
 
+    while guitar_name != "":
+        guitar_year = int(input("Year: "))
+        guitar_cost = float(input("Cost: $"))
+
+        new_guitar = Guitar(guitar_name, guitar_year, guitar_cost)
+        guitar.append(new_guitar)
+        print(f"{new_guitar} added")
+        guitar_name = input("Name: ")
 
 
 main()
