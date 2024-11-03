@@ -8,6 +8,7 @@ from prac_06.guitar import Guitar
 
 
 def main():
+    """Test the functionality of Guitar class"""
 
     guitars = []
     guitar_name = input("Name: ")
