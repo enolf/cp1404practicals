@@ -1,6 +1,7 @@
 """
+CP1404 - prac_06 - Florian N Eisen
 estimated: 32
-actual
+actual: 29
 """
 
 from prac_06.guitar import Guitar
