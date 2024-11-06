@@ -24,11 +24,13 @@ def main():
         # Strip newline from end and split it into parts (CSV)
         parts = line.strip().split(',')
         # print(parts)  # debugging
-        # Reflection is stored as a string (Yes/No) and we want a Boolean
+        # Reflection and arithmetic_pointer is stored as a string (Yes/No)
+        # and we want a Boolean
         reflection = parts[2] == "Yes"
+        pointer_arithmetic = parts[4] == "Yes"
         # Construct a ProgrammingLanguage object using the elements
         # year should be an int
-        language = ProgrammingLanguage(parts[0], parts[1], reflection, int(parts[3]))
+        language = ProgrammingLanguage(parts[0], parts[1], reflection, int(parts[3]), pointer_arithmetic)
         # Add the language we've just constructed to the list
         languages.append(language)
     # Close the file as soon as we've finished reading it
@@ -84,5 +86,6 @@ def using_csv_namedtuple():
     for language in map(Language._make, csv.reader(in_file)):
         print(language.name, 'was released in', language.year)
         print(repr(language))
+
 
 # using_csv_namedtuple()
