@@ -18,10 +18,16 @@ class ProgrammingLanguage:
     def __repr__(self):
         """Return string representation of a ProgrammingLanguage."""
         return (f"{self.name}, {self.typing} Typing, Reflection={self.reflection},"
-                f"Pointer Arithmetic={self.pointer_arithmetic} First appeared in {self.year}")
+                f"First appeared in {self.year}, Pointer Arithmetic={self.pointer_arithmetic} ")
+
+    # commented out __str__ method such that __repr__ is printed
+    # def __str__(self):
+    #     """Return the informal string representation of a ProgrammingLanguage."""
+    #     return (f"{self.name}, {self.typing} Typing, Reflection={self.reflection},"
+    #             f"Year={self.year}, Pointer Arithmetic={self.pointer_arithmetic},")
 
     def is_dynamic(self):
-        """Determine if language is dynamically typed."""
+        """Determine if language is dynamically typed. Returns True or False."""
         return self.typing == "Dynamic"
 
 
