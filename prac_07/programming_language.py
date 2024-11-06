@@ -1,5 +1,5 @@
 """
-CP1404/CP5632 Practical - Suggested Solution
+CP1404 - prac_07 - Florian N Eisen
 Programming Language class with tests.
 """
 
