@@ -32,8 +32,16 @@ def add_new_guitar(my_guitars ):
     """Add new guitar to my_guitars"""
     new_guitar_name = input("Enter new guitar name: ")
     while new_guitar_name != "":
-        new_guitar_year = int(input("Enter new guitar year: "))
-        new_guitar_cost = float(input("Enter new guitar cost: "))
+        # accept empty inputs for year and cost and set them to zero
+        try:
+            new_guitar_year = int(input("Enter new guitar year: "))
+        except ValueError:
+            new_guitar_year = 0
+        try:
+            new_guitar_cost = float(input("Enter new guitar cost: "))
+        except ValueError:
+            new_guitar_cost = 0
+
         new_guitar = Guitar(new_guitar_name, new_guitar_year, new_guitar_cost)
         my_guitars .append(new_guitar)
         new_guitar_name = input("Enter new guitar name: ")
@@ -46,6 +54,8 @@ def sort_by_year(my_guitars):
     my_guitars.sort()
     for my_guitar in my_guitars:
         print(my_guitar)
+
+
 
 
 main()
