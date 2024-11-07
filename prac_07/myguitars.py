@@ -20,7 +20,7 @@ def main():
             print(new_guitar)
 
     # print a sorted version based on ascending order of guitars years
-    print("\nHere is a sorted version of the guitars based on the ascending order of years")
+    print("\nHere is a sorted version of the guitars based on the ascending order of years:")
     my_guitars.sort()
     for my_guitar in my_guitars:
         print(my_guitar)
