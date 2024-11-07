@@ -23,12 +23,14 @@ def main():
             my_guitars.append(new_guitar)
             print(new_guitar)
 
-    add_new_guitar(my_guitars )
+    add_new_guitar(my_guitars)
 
     sort_by_year(my_guitars)
 
+    write_guitars(my_guitars)
 
-def add_new_guitar(my_guitars ):
+
+def add_new_guitar(my_guitars):
     """Add new guitar to my_guitars"""
     new_guitar_name = input("Enter new guitar name: ")
     while new_guitar_name != "":
@@ -43,7 +45,7 @@ def add_new_guitar(my_guitars ):
             new_guitar_cost = 0
 
         new_guitar = Guitar(new_guitar_name, new_guitar_year, new_guitar_cost)
-        my_guitars .append(new_guitar)
+        my_guitars.append(new_guitar)
         new_guitar_name = input("Enter new guitar name: ")
     return my_guitars
 
@@ -56,6 +58,10 @@ def sort_by_year(my_guitars):
         print(my_guitar)
 
 
+def write_guitars(my_guitars):
+    with open(file=FILENAME, mode="w") as writefile:
+        for guitar in my_guitars:
+            print(f"{guitar.name},{guitar.year},{guitar.cost}", file=writefile)
 
 
 main()
