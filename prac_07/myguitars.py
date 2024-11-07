@@ -12,10 +12,12 @@ def main():
 
     readfile = open(file="guitars.csv", mode='r')
     for line in readfile:
-        parts= line.split(',')
+        parts = line.split(',')
         new_guitar = Guitar(parts[0], int(parts[1]), float(parts[2]))
         my_guitars.append(new_guitar)
         print(new_guitar)
+
+    my_guitars.sort()
 
 
 main()
