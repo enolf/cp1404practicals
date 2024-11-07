@@ -6,11 +6,13 @@ program to use my guitars
 # import csv
 from prac_07.guitar import Guitar
 
+FILENAME = "guitars.csv"
+
 
 def main():
     my_guitars = []
 
-    with open(file="guitars.csv", mode='r') as readfile:
+    with open(file=FILENAME, mode='r') as readfile:
         for line in readfile:
             parts = line.split(',')
             new_guitar = Guitar(parts[0], int(parts[1]), float(parts[2]))
