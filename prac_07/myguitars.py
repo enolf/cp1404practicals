@@ -59,6 +59,7 @@ def sort_by_year(my_guitars):
 
 
 def write_guitars(my_guitars):
+    """Write the new guitars to FILENAME"""
     with open(file=FILENAME, mode="w") as writefile:
         for guitar in my_guitars:
             print(f"{guitar.name},{guitar.year},{guitar.cost}", file=writefile)
