@@ -42,12 +42,13 @@ def load_projects():
     while not valid_try:
         try:
             user_filename = str(input("Enter file name: "))
-            with open(file=user_filename, mode='r') as readfile:
-                readfile.readline()
-                for line in readfile:
-                    line.split('\t')
-
-                    print(line)
+            with open(file=user_filename, mode='r') as project_file:
+                project_file.readline()
+                for project in project_file:
+                    project = project.split('\t')
+                    project_object = Project(project[0], project[1], project[2], project[3], project[4])
+                    projects.append(project_object)
+                    print(project_object)
 
             valid_try = True
         except FileNotFoundError or TypeError:
