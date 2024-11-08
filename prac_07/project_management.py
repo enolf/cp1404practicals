@@ -21,37 +21,45 @@ def main():
     user_input = input(">>> ").upper()
     while user_input != "Q":
         if user_input == "L":
-
-        elif user_input == "S":
-        elif user_input == "D":
-        elif user_input == "F":
-        elif user_input == "A":
-        elif user_input == "U":
+            load_projects()
+            # elif user_input == "S":
+            # elif user_input == "D":
+            # elif user_input == "F":
+            # elif user_input == "A":
+            # elif user_input == "U":
         else:
             print("Invalid Input")
 
         user_input = input(">>> ").upper()
-def load_projects(filename):
-
-    try:
-        filename = str(input("Enter file name: "))
-        with open(filename, mode='r', newline='') as readfile:
-            for line in readfile:
-    except TypeError:
-        print("Must be a valid string")
-    except FileNotFoundError:
-        print("File not found try again")
 
 
-def save_projects():
+def load_projects():
 
-def display_projects():
+    valid_try = False
+    while not valid_try:
+        try:
+            user_filename = str(input("Enter file name: "))
+            with open(file=user_filename, mode='r') as readfile:
+                readfile.readline()
+                for line in readfile:
+                    line.split('\t')
+                    print(line)
 
-def filter_projects():
+            valid_try = True
+        except FileNotFoundError or TypeError:
+            print("File not found try again")
+            valid_try = False
 
-def add_project():
-
-def update_project():
+#
+# def save_projects():
+#
+# def display_projects():
+#
+# def filter_projects():
+#
+# # def add_project():
+#
+# def update_project():
 
 
 
