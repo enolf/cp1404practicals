@@ -19,13 +19,16 @@ MENU = """
 
 def main():
 
+    projects = []
+
     print(MENU)
     user_input = input(">>> ").upper()
     while user_input != "Q":
         if user_input == "L":
-            load_projects()
+            load_projects(projects)
             # elif user_input == "S":
-            # elif user_input == "D":
+        elif user_input == "D":
+            display_projects(projects)
             # elif user_input == "F":
             # elif user_input == "A":
             # elif user_input == "U":
@@ -35,9 +38,8 @@ def main():
         user_input = input(">>> ").upper()
 
 
-def load_projects():
+def load_projects(projects):
 
-    projects = []
     valid_try = False
     while not valid_try:
         try:
@@ -48,9 +50,7 @@ def load_projects():
                     project = project.split('\t')
                     project_object = Project(project[0], project[1], project[2], project[3], project[4])
                     projects.append(project_object)
-                    print(project_object)
-
-            valid_try = True
+            return projects
         except FileNotFoundError or TypeError:
             print("File not found try again")
             valid_try = False
@@ -58,7 +58,10 @@ def load_projects():
 #
 # def save_projects():
 #
-# def display_projects():
+
+
+def display_projects(projects):
+    print(projects)
 #
 # def filter_projects():
 #
