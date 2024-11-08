@@ -4,6 +4,8 @@ estimated: 2 hours
 actual
 """
 
+from prac_07.project import Project
+
 MENU = """
 - (L)oad projects  
 - (S)ave projects  
@@ -35,6 +37,7 @@ def main():
 
 def load_projects():
 
+    projects = []
     valid_try = False
     while not valid_try:
         try:
@@ -43,6 +46,7 @@ def load_projects():
                 readfile.readline()
                 for line in readfile:
                     line.split('\t')
+
                     print(line)
 
             valid_try = True
