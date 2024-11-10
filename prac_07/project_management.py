@@ -1,7 +1,7 @@
 """
 CP1404 - prac_07 - Florian N Eisen
 estimated: 2 hours
-actual: 2 hours, and going
+actual: 3.5 hours
 """
 
 from prac_07.project import Project
@@ -19,6 +19,7 @@ MENU = """
 
 
 def main():
+    """A program to use and update a project list"""
     projects = []
 
     print(MENU)
@@ -26,7 +27,8 @@ def main():
     while user_input != "Q":
         if user_input == "L":
             load_projects(projects)
-        # elif user_input == "S":
+        elif user_input == "S":
+            save_projects(projects)
         elif user_input == "D":
             display_projects(projects)
         elif user_input == "F":
@@ -46,21 +48,38 @@ def load_projects(projects):
     valid_try = False
     while not valid_try:
         try:
-            user_filename = "projects.txt"  # str(input("Enter file name: "))
+            user_filename = str(input("Enter file name: "))
             with open(file=user_filename, mode='r') as project_file:
                 project_file.readline()
                 for project in project_file:
-                    project = project.split('\t')
+                    project = project.strip().split('\t')
                     project_object = Project(project[0], project[1], project[2], project[3], project[4])
-                    # print(project_object)
                     projects.append(project_object)
-                return projects
+                return projects, user_filename
         except FileNotFoundError or TypeError:
             print("File not found try again")
             valid_try = False
 
 
-# def save_projects():
+def save_projects(projects):
+    """Ask user for filename to save project list to"""
+    if projects:
+        valid_try = False
+        while not valid_try:
+            try:
+                user_filename = str(input("Enter file name: "))
+                with open(file=user_filename, mode='w') as project_file:
+                    print(f"Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=project_file)
+                    for project in projects:
+                        print(f"{project.name}\t{project.date}\t{project.priority}\t{project.cost}"
+                              f"\t{project.completion}", file=project_file)
+                        valid_try = True
+                        print(f"Saved into {project_file}")
+            except FileNotFoundError or TypeError:
+                print("File not found try again")
+                valid_try = False
+    else:
+        print("No projects")
 
 
 def display_projects(projects):
@@ -112,9 +131,24 @@ def add_project(projects):
 
 
 def update_project(projects):
+    """Update project's priority and completion"""
     if projects:
-        for project in enumerate(projects):
-            print(project)
+        print("Select a project you want to update: ")
+        for project in enumerate(projects, 1):
+            print(project[0], project[1])
+        valid_try = False
+        while not valid_try:
+            try:
+                project_number = int(input(""))
+                valid_try = True
+            except ValueError:
+                print("Invalid input")
+                valid_try = False
+        new_priority = input(f"Update Priority {projects[project_number-1].priority}\nto: ")
+        projects[project_number - 1].priority = new_priority
+        new_completion = input(f"Update completion {projects[project_number - 1].completion}\nto: ")
+        projects[project_number - 1].completion = new_completion
+        print(f"Update project:\n{projects[project_number - 1]}")
     else:
         print("No projects")
 
