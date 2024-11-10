@@ -17,7 +17,7 @@ class Project:
     def __str__(self):
         """Return a string representation of the project"""
         return (f"Name: {self.name}, Start Date: {self.date}, Priority: {self.priority}, "
-                f"Cost Estimate: {self.cost}, Completion Percentage: {self.completion}")
+                f"Cost Estimate: ${self.cost}, Completion Percentage: {self.completion}")
 
     def __lt__(self, other):
         """Compare two object's priorities"""

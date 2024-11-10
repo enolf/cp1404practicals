@@ -76,12 +76,16 @@ def filter_projects(projects):
     """Filter projects by date, starting after given date"""
     if projects:
         try:
-            input_date = input("Date (d/m/yyyy): ")
+            input_date = input("Date to sort from (d/m/yyyy): ")
             user_date = datetime.datetime.strptime(input_date, "%d/%m/%Y").date()
+            is_printed = False
             for project in projects:
                 project_date = datetime.datetime.strptime(project.date, "%d/%m/%Y").date()
                 if project_date >= user_date:
                     print(project)
+                    is_printed = True
+            if not is_printed:
+                print("All projects are before that date")
         except ValueError:
             print("Invalid Date")
     else:
@@ -91,7 +95,7 @@ def filter_projects(projects):
 def add_project(projects):
     """Allow user to add a new project"""
     name = input("Enter project name: ")
-    date = input("Enter the start of the project or press enter if its today: ")
+    date = input("Enter the start of the project or press enter if its today (dd/mm/yyyy): ")
     if date == "":
         date = datetime.date.today()
     priority = input("Enter the priority of the project: ")
