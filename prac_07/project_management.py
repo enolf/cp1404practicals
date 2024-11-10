@@ -5,6 +5,7 @@ actual
 """
 
 from prac_07.project import Project
+import datetime
 
 MENU = """
 - (L)oad projects  
@@ -26,13 +27,13 @@ def main():
     while user_input != "Q":
         if user_input == "L":
             load_projects(projects)
-            # elif user_input == "S":
-            # print(projects)
+        # elif user_input == "S":
         elif user_input == "D":
             display_projects(projects)
-            # elif user_input == "F":
-            # elif user_input == "A":
-            # elif user_input == "U":
+        elif user_input == "F":
+            filter_projects(projects)
+        # elif user_input == "A":
+        # elif user_input == "U":
         else:
             print("Invalid Input")
 
@@ -40,7 +41,7 @@ def main():
 
 
 def load_projects(projects):
-
+    """Ask user for project name and extract data in projects list"""
     valid_try = False
     while not valid_try:
         try:
@@ -63,10 +64,27 @@ def load_projects(projects):
 
 
 def display_projects(projects):
-    for project in projects:
-        print(project)
-#
-# def filter_projects():
+    """Print objects and sort by priority"""
+    if projects:  # check if projects exist
+        projects.sort()  # sort by priority by define __lt__
+        for project in projects:
+            print(project)
+    else:
+        print("No projects")
+
+
+def filter_projects(projects):
+    """Filter projects by date, starting after given date"""
+    if projects:
+        user_date = input("Date (d/m/yyyy): ")
+        date = datetime.datetime.strptime(user_date, "%d/%m/%Y").date()
+        # print(f"That day is/was {date.strftime('%A')}")
+        # print(date.strftime("%d/%m/%Y"))
+        # projects.sort(date)
+        for project in projects:
+            print(project.date)
+    else:
+        print("No projects")
 #
 # # def add_project():
 #
