@@ -27,6 +27,7 @@ def main():
         if user_input == "L":
             load_projects(projects)
             # elif user_input == "S":
+            # print(projects)
         elif user_input == "D":
             display_projects(projects)
             # elif user_input == "F":
@@ -49,8 +50,9 @@ def load_projects(projects):
                 for project in project_file:
                     project = project.split('\t')
                     project_object = Project(project[0], project[1], project[2], project[3], project[4])
+                    # print(project_object)
                     projects.append(project_object)
-            return projects
+                return projects
         except FileNotFoundError or TypeError:
             print("File not found try again")
             valid_try = False
@@ -61,7 +63,8 @@ def load_projects(projects):
 
 
 def display_projects(projects):
-    print(projects)
+    for project in projects:
+        print(project)
 #
 # def filter_projects():
 #
