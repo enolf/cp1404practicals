@@ -33,7 +33,8 @@ def main():
             filter_projects(projects)
         elif user_input == "A":
             add_project(projects)
-        # elif user_input == "U":
+        elif user_input == "U":
+            update_project(projects)
         else:
             print("Invalid Input")
 
@@ -110,7 +111,12 @@ def add_project(projects):
     print(project_object)
 
 
-# def update_project():
+def update_project(projects):
+    if projects:
+        for project in enumerate(projects):
+            print(project)
+    else:
+        print("No projects")
 
 
 main()
