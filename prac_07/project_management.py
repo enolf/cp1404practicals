@@ -31,7 +31,8 @@ def main():
             display_projects(projects)
         elif user_input == "F":
             filter_projects(projects)
-        # elif user_input == "A":
+        elif user_input == "A":
+            add_project(projects)
         # elif user_input == "U":
         else:
             print("Invalid Input")
