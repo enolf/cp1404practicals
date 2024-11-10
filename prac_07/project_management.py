@@ -19,7 +19,6 @@ MENU = """
 
 
 def main():
-
     projects = []
 
     print(MENU)
@@ -45,7 +44,7 @@ def load_projects(projects):
     valid_try = False
     while not valid_try:
         try:
-            user_filename = "projects.txt" # str(input("Enter file name: "))
+            user_filename = "projects.txt"  # str(input("Enter file name: "))
             with open(file=user_filename, mode='r') as project_file:
                 project_file.readline()
                 for project in project_file:
@@ -57,6 +56,7 @@ def load_projects(projects):
         except FileNotFoundError or TypeError:
             print("File not found try again")
             valid_try = False
+
 
 # def save_projects():
 
@@ -86,9 +86,26 @@ def filter_projects(projects):
     else:
         print("No projects")
 
-# def add_project():
-# def update_project():
 
+def add_project(projects):
+    """Allow user to add a new project"""
+    name = input("Enter project name: ")
+    date = input("Enter the start of the project or press enter if its today: ")
+    if date == "":
+        date = datetime.date.today()
+    priority = input("Enter the priority of the project: ")
+    cost = input("Enter the cost of the project: ")
+    if cost == "":
+        cost = 0
+    completion = input("Enter the completion of the project (%): ")
+    if priority == "":
+        priority = 0
+    project_object = Project(name, date, priority, cost, completion)
+    projects.append(project_object)
+    print(project_object)
+
+
+# def update_project():
 
 
 main()
