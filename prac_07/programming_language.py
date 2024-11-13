@@ -1,5 +1,5 @@
 """
-CP1404/CP5632 Practical - Suggested Solution
+CP1404 - prac_07 - Florian N Eisen
 Programming Language class with tests.
 """
 
@@ -7,27 +7,35 @@ Programming Language class with tests.
 class ProgrammingLanguage:
     """Represent information about a programming language."""
 
-    def __init__(self, name, typing, reflection, year):
+    def __init__(self, name, typing, reflection, year, pointer_arithmetic):
         """Construct a ProgrammingLanguage from the given values."""
         self.name = name
         self.typing = typing
         self.reflection = reflection
         self.year = year
+        self.pointer_arithmetic = pointer_arithmetic
 
     def __repr__(self):
         """Return string representation of a ProgrammingLanguage."""
-        return f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, First appeared in {self.year}"
+        return (f"{self.name}, {self.typing} Typing, Reflection={self.reflection},"
+                f"First appeared in {self.year}, Pointer Arithmetic={self.pointer_arithmetic} ")
+
+    # commented out __str__ method such that __repr__ is printed
+    # def __str__(self):
+    #     """Return the informal string representation of a ProgrammingLanguage."""
+    #     return (f"{self.name}, {self.typing} Typing, Reflection={self.reflection},"
+    #             f"Year={self.year}, Pointer Arithmetic={self.pointer_arithmetic},")
 
     def is_dynamic(self):
-        """Determine if language is dynamically typed."""
+        """Determine if language is dynamically typed. Returns True or False."""
         return self.typing == "Dynamic"
 
 
 def run_tests():
     """Run simple tests/demos on ProgrammingLanguage class."""
-    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995)
-    python = ProgrammingLanguage("Python", "Dynamic", True, 1991)
-    visual_basic = ProgrammingLanguage("Visual Basic", "Static", False, 1991)
+    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995, False)
+    python = ProgrammingLanguage("Python", "Dynamic", True, 1991, False)
+    visual_basic = ProgrammingLanguage("Visual Basic", "Static", False, 1991, False)
 
     languages = [ruby, python, visual_basic]
     print(python)
