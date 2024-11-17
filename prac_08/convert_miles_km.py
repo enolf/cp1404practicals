@@ -11,4 +11,8 @@ class ConvertMilesFromKilometres(App):
 
     def build(self):
         self.title = 'Convert Miles to Kilometres'
-        self.root = Builder.load_file('convert_miles_kilometres.kv')
+        self.root = Builder.load_file('convert_miles_km.kv')
+        return self.root
+
+
+ConvertMilesFromKilometres().run()
