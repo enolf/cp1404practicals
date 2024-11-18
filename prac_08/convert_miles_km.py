@@ -5,7 +5,6 @@ GUI program to convert miles to kilometres
 
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.properties import StringProperty
 
 KM_TO_MILES = 1.60934
 
