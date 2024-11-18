@@ -9,7 +9,7 @@ from kivy.lang import Builder
 KM_TO_MILES = 1.60934
 
 
-class ConvertMilesFromKilometres(App):
+class ConvertMilesToKilometres(App):
 
     def build(self):
         self.title = 'Convert Miles to Kilometres'
@@ -17,16 +17,16 @@ class ConvertMilesFromKilometres(App):
         return self.root
 
     def handle_m_input(self):
-        input_m = self.root.ids.input_km.text
+        input_m = self.root.ids.input_m.text
         input_m = self.verify_float(input_m)
         output_miles = float(input_m) * KM_TO_MILES
-        self.root.ids.output_miles.text = str(output_miles)
+        self.root.ids.output_km.text = str(output_miles)
 
     def toggle_input(self, amount):
-        input_m = self.root.ids.input_km.text
+        input_m = self.root.ids.input_m.text
         input_m = self.verify_float(input_m)
         input_m += amount
-        self.root.ids.input_km.text = str(input_m)
+        self.root.ids.input_m.text = str(input_m)
         self.handle_m_input()
 
     def verify_float(self, input_m):
@@ -37,4 +37,4 @@ class ConvertMilesFromKilometres(App):
             return 0
 
 
-ConvertMilesFromKilometres().run()
+ConvertMilesToKilometres().run()
