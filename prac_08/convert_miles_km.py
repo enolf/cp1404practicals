@@ -16,23 +16,23 @@ class ConvertMilesFromKilometres(App):
         self.root = Builder.load_file('convert_miles_km.kv')
         return self.root
 
-    def handle_km_input(self):
-        input_km = self.root.ids.input_km.text
-        input_km = self.verify_float(input_km)
-        output_miles = float(input_km) * KM_TO_MILES
+    def handle_m_input(self):
+        input_m = self.root.ids.input_km.text
+        input_m = self.verify_float(input_m)
+        output_miles = float(input_m) * KM_TO_MILES
         self.root.ids.output_miles.text = str(output_miles)
 
     def toggle_input(self, amount):
-        input_km = self.root.ids.input_km.text
-        input_km = self.verify_float(input_km)
-        input_km += amount
-        self.root.ids.input_km.text = str(input_km)
-        self.handle_km_input()
+        input_m = self.root.ids.input_km.text
+        input_m = self.verify_float(input_m)
+        input_m += amount
+        self.root.ids.input_km.text = str(input_m)
+        self.handle_m_input()
 
-    def verify_float(self, input_km):
+    def verify_float(self, input_m):
         try:
-            float(input_km)
-            return float(input_km)
+            float(input_m)
+            return float(input_m)
         except ValueError or TypeError:
             return 0
 
