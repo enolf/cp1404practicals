@@ -4,7 +4,7 @@ BoxLayout:
         orientation: 'horizontal'
         size_hint_y: 0.3
         TextInput:
-            id: input_km
+            id: input_m
             text: 'Input km'
             multiline: False
         BoxLayout:
@@ -19,10 +19,10 @@ BoxLayout:
     Button:
         size_hint_y: 0.5
         text: 'Convert Kilometers to Miles'
-        on_press: app.handle_km_input()
+        on_press: app.handle_m_input()
 
     Label:
-        id: output_miles
+        id: output_km
         size_hint_y: 0.5
         color: (1,1,0,1)
         text: 'Miles'
