@@ -24,5 +24,18 @@ class ConvertMilesFromKilometres(App):
         except ValueError or TypeError:
             pass
 
+    def toggle_input(self, amount):
+        input_km = self.root.ids.input_km.text
+        input_km = self.verify_float(input_km)
+        input_km += amount
+        self.root.ids.input_km.text = str(input_km)
+
+    def verify_float(self, input_km):
+        try:
+            float(input_km)
+            return float(input_km)
+        except ValueError or TypeError:
+            return 0
+
 
 ConvertMilesFromKilometres().run()
