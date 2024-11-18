@@ -18,17 +18,16 @@ class ConvertMilesFromKilometres(App):
 
     def handle_km_input(self):
         input_km = self.root.ids.input_km.text
-        try:
-            output_miles = float(input_km) * KM_TO_MILES
-            self.root.ids.output_miles.text = str(output_miles)
-        except ValueError or TypeError:
-            pass
+        input_km = self.verify_float(input_km)
+        output_miles = float(input_km) * KM_TO_MILES
+        self.root.ids.output_miles.text = str(output_miles)
 
     def toggle_input(self, amount):
         input_km = self.root.ids.input_km.text
         input_km = self.verify_float(input_km)
         input_km += amount
         self.root.ids.input_km.text = str(input_km)
+        self.handle_km_input()
 
     def verify_float(self, input_km):
         try:
