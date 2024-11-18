@@ -1,14 +1,12 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.label import Label
-from kivy.properties import StringProperty
 
 COLOUR_NAMES = ["AliceBlue", "British Racing Green", "Cherry Blossom Pink", "Deep Saffron", "Vanilla",
                 "Teal", "Pistachio", "Opal"]
 
 
 class DynamicLabel(App):
-    status_text = StringProperty()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
