@@ -1,25 +1,25 @@
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix import Button
+from kivy.uix.label import Label
 from kivy.properties import StringProperty
 
-NAMES_TO_HEX_CODES = {"AliceBlue": "#f0f8ff", "British Racing Green": "#004225",
-                      "Cherry Blossom Pink": "#ffb7c5", "Deep Saffron": "#ff9933",
-                      "Vanilla": "#f3e5ab", "Teal": "#008080", "Pistachio": "#93c572",
-                      "Opal": "#a8c3bc", "LimeGreen": "#32cd32", "Key Lime": "#e8f48c"}
+COLOUR_NAMES = ["AliceBlue", "British Racing Green", "Cherry Blossom Pink", "Deep Saffron", "Vanilla",
+                "Teal", "Pistachio", "Opal"]
 
 
 class DynamicLabel(App):
-
     status_text = StringProperty()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.hex_codes = NAMES_TO_HEX_CODES
+        self.hex_codes = COLOUR_NAMES
 
     def build(self):
+        self.title = "Dynamic Labels"
+        self.root = Builder.load_file('dynamic_labels.kv')
         for name in self.hex_codes:
-
+            temp_label = Label(text=name)
+            self.root.ids.display_names.add_widget(temp_label)
 
 
 DynamicLabel().run()
