@@ -11,9 +11,15 @@ NAMES_TO_HEX_CODES = {"AliceBlue": "#f0f8ff", "British Racing Green": "#004225",
 
 class DynamicLabel(App):
 
+    status_text = StringProperty()
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.hex_codes = NAMES_TO_HEX_CODES
+
+    def build(self):
+        for name in self.hex_codes:
+
 
 
 DynamicLabel().run()
