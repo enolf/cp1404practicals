@@ -12,8 +12,10 @@ BoxLayout:
             size_hint_x: 0.25
             Button:
                 text: 'Up'
+                on_press: app.toggle_input(1)
             Button:
                 text: 'Down'
+                on_press: app.toggle_input(-1)
     Button:
         size_hint_y: 0.5
         text: 'Convert Kilometers to Miles'
