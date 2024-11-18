@@ -12,6 +12,7 @@ COLOUR_NAMES = ["AliceBlue", "British Racing Green", "Cherry Blossom Pink", "Dee
 
 
 class DynamicLabel(App):
+    """Main program - Kivy app that dynamically displays names as labels"""
 
     def __init__(self, **kwargs):
         """Construct Main App"""
