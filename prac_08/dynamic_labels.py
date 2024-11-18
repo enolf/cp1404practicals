@@ -15,6 +15,9 @@ class DynamicLabel(App):
     def build(self):
         self.title = "Dynamic Labels"
         self.root = Builder.load_file('dynamic_labels.kv')
+        self.create_labels()
+
+    def create_labels(self):
         for name in self.hex_codes:
             temp_label = Label(text=name)
             self.root.ids.display_names.add_widget(temp_label)
