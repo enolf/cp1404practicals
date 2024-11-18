@@ -23,7 +23,7 @@ class ConvertMilesToKilometres(App):
         input_m = self.root.ids.input_m.text
         input_m = self.verify_float(input_m)
         output_miles = float(input_m) * KM_TO_MILES
-        self.root.ids.output_km.text = str(output_miles)
+        self.root.ids.output_km.text = f'{output_miles} miles'
 
     def toggle_input(self, amount):
         """Toggle the user input but +1/-1"""
