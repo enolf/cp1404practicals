@@ -34,6 +34,7 @@ class ConvertMilesToKilometres(App):
             float(input_m)
             return float(input_m)
         except ValueError or TypeError:
+            self.root.ids.input_m.text = '0'
             return 0
 
 
