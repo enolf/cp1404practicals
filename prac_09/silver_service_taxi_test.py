@@ -14,5 +14,6 @@ def main():
     # assert mumbai_taxi.get_fare() == 48.78 # assert an 18 km trip in a SilverServiceTaxi with fanciness of 2
     assert mumbai_taxi.get_fare() == 48.80  # assert the 18km trip is rounded
 
+
 if __name__ == "__main__":
     main()
