@@ -7,11 +7,19 @@ from prac_09.taxi import Taxi
 
 
 class SilverServiceTaxi(Taxi):
-    """SilverSeriveTaxi is a subclass of Taxi"""
+    """SilverServiceTaxi is a subclass of Taxi"""
 
-    flag_fall = 4.5  # extra charge
+    flagfall = 4.5  # extra charge for silver service
 
-    def __init__(self, name, price_per_km, fanciness=0.0):
+    def __init__(self, name, fuel, fanciness=0.0):
         """name, price_per_km, fanciness"""
-        super().__init__(name, price_per_km)
+        super().__init__(name, fuel)
         self.price_per_km = Taxi.price_per_km * fanciness
+
+    def __str__(self):
+        """Return Taxi's __str__"""
+        return f'{super().__str__()}'
+
+    def get_fare(self):
+        """Get fare incl. flagfall price"""
+        return Taxi.get_fare(self) + self.flagfall
