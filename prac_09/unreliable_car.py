@@ -26,9 +26,8 @@ class UnreliableCar(Car):
         random_int = randint(0, 100)
         if random_int > self.reliability:
             distance = 0
-        else:
-            distance = super().drive(distance)
-        return distance
+        distance_driven = super().drive(distance)
+        return distance_driven
 
 
 
