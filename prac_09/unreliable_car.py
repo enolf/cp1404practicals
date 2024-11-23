@@ -13,7 +13,7 @@ class UnreliableCar(Car):
     Attributes:
         reliability: a float between 0 and 100, that represents the percentage chance that the drive method will actually drive the car
     """
-    def __init__(self, name='', fuel=0, reliability=0):
+    def __init__(self, name='', fuel=0, reliability=0.0):
         """
         name, fuel, reliability
         """
