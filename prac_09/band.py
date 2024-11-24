@@ -13,7 +13,8 @@ class Band:
         self._musicians = []
 
     def __str__(self):
-        return f'{self.name} ({[musician.__str__() for musician in self._musicians]})'
+        musicians = ''.join([str(musician) for musician in self._musicians])
+        return f'{self.name} ({musicians})'
 
     def play(self):
         return '\n'.join([musician.play() for musician in self._musicians])
