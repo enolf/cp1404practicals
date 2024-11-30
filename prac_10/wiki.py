@@ -9,9 +9,16 @@ def main():
 
     entry = input("Enter a Wikipedia Search: ")
     while entry != '':
-        wiki_result = wikipedia.summary(entry, sentences=1)
-        print(wiki_result)
+        try:
+            wiki_result = wikipedia.page(entry, auto_suggest=False)
+            print(wiki_result)
+
+        except wikipedia.exceptions.DisambiguationError as e:
+            print(e.options)
+        except wikipedia.exceptions.PageError as e:
+            print(e)
         entry = input("Enter a Wikipedia Search: ")
+
 
 if __name__ == "__main__":
     main()
